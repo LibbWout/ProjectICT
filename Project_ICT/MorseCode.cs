@@ -16,27 +16,30 @@ namespace Project_ICT
             set { code = value; }
         }
 
+
+
         public string Vertaal(string text)
         {
             foreach (char a in text)
             {
                 string i = a.ToString();
                 Code = Code + Codeer(i);
+                return code;
             }
-            return code;
         }
+
 
         private string Codeer(string i)
         {
-            string vertaling;
-            if (i == "a")
-                vertaling = ".-";
-            if (i == "b")
-                vertaling = "-...";
-            if (i == "c")
-                vertaling = "-.-.";
+                string vertaling;
+                if (i == "a")
+                   vertaling = ".-";
+                if (i == "b")
+                   vertaling = "-...";
+                if (i == "c")
+                   vertaling = "-.-.";
 
-        } 
+        }
 
     }
 }
