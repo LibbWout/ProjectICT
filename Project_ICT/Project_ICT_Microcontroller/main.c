@@ -20,10 +20,12 @@ void SystemClock_Config(void);
 void InitIo(void);
 void WaitForMs(uint32_t timespan);
 
+
 // Variabelen aanmaken. 
 // OPM: het keyword 'static', zorgt ervoor dat de variabele enkel binnen dit bestand gebruikt kan worden.
 static uint8_t count = 0;
 static volatile uint32_t ticks = 0;
+uint8_t temp = 0;
 
 // Entry point.
 int main(void)
@@ -40,15 +42,17 @@ int main(void)
 	StringToUsart2("Reboot\r\n");
 	
 	// Oneindige lus starten.
-	while (1)
-	{	
-		uint8_t temp = USART2->RDR;
-	
-		if(temp == 45)
+
+		
+	while(1)
+	{
+
+				if(temp == 45)
 		{
 			ByteToLeds(255);
 			WaitForMs(100);
 			ByteToLeds(0);
+		
 		}
 		if(temp == 46)
 		{
@@ -57,16 +61,27 @@ int main(void)
 			ByteToLeds(0);
 		}
 	
-
+		ByteToLeds(temp);                    
 		
-	
 	// Terugkeren zonder fouten... (unreachable).
 	
 	}
 	return 0;
 }
+void USART2_IRQHandler(void)
+{
+	if((USART2->ISR & USART_ISR_RXNE) == USART_ISR_RXNE)
+	{
+		// Byte ontvangen, lees hem om alle vlaggen te wissen.
+		temp = USART2->RDR;		
+		
+		
+	
 
-// Vang de interrupt van USART2 op en verwerk die...
+	}
+}
+
+
 
 	
 
