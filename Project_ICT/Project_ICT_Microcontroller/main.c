@@ -47,19 +47,8 @@ int main(void)
 	while(1)
 	{
 
-				if(temp == 45)
-		{
-			ByteToLeds(255);
-			WaitForMs(100);
-			ByteToLeds(0);
-		
-		}
-		if(temp == 46)
-		{
-			ByteToLeds(255);
-			WaitForMs(50);
-			ByteToLeds(0);
-		}
+
+	
 	
 		ByteToLeds(temp);                    
 		
@@ -75,7 +64,16 @@ void USART2_IRQHandler(void)
 		// Byte ontvangen, lees hem om alle vlaggen te wissen.
 		temp = USART2->RDR;		
 		
+			if(temp == 97)
+		{
 		
+		
+		}
+		if(temp == 98)
+		{
+			
+		}
+
 	
 
 	}

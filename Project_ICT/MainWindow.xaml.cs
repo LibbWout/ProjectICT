@@ -67,7 +67,20 @@ namespace Project_ICT
 
         private void btnVertaal_Click(object sender, RoutedEventArgs e)
         {
+            MorseCode morse = new MorseCode();
+            morse.Vertaal(tbxTekst.Text);
+            tbkMorseCode.Text = morse.Code.ToString();
+            stuurNaarMicro(morse);
 
+        }
+
+        private void stuurNaarMicro(MorseCode morse)
+        {
+            if ((_serialPort != null) && (_serialPort.IsOpen))
+            {
+                
+                _serialPort.WriteLine(morse.Code);
+            }
         }
     }
 }

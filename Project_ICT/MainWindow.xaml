@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_ICT"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
+        Title="MainWindow" Height="450" Width="800" FontSize="15">
+    <StackPanel Margin="10">
         <GroupBox Header="Selectie COM-poort">
-            <ComboBox Height="48" Margin="20" Name="cbxCOMPoort" SelectionChanged="cbxCOMPoort_SelectionChanged"  > </ComboBox>
+            <ComboBox Height="35" Margin="20" Name="cbxCOMPoort" SelectionChanged="cbxCOMPoort_SelectionChanged"  ></ComboBox>
         </GroupBox>
         <GroupBox Header="Te vertalen tekst">
-           
-                <TextBox x:Name="tbxTekst" Height="30" Margin="20" IsEnabled="False"/>
+
+            <TextBox x:Name="tbxTekst" Height="30" Margin="20" IsEnabled="False"/>
         </GroupBox>
         <GroupBox Header="Morsecode" >
-            <TextBlock Name="tbkMorseCode"  Margin="20" Height="30" IsEnabled="False">
+            <TextBlock Name="tbkMorseCode"  Margin="20" Height="30" IsEnabled="False" TextAlignment="Center" FontSize="30">
 
             </TextBlock>
         </GroupBox>
 
-        <Button Height="64" Margin="20" Width="150" Name="btnVertaal" Click="btnVertaal_Click" IsEnabled="False"> Vertaal naar morsecode. </Button>
-        
-        
+        <Button Height="64" Margin="20" Width="170" Name="btnVertaal" Click="btnVertaal_Click" IsEnabled="False">Vertaal naar morsecode.</Button>
+
+
     </StackPanel>
 </Window>
