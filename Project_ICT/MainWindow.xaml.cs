@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Project_ICT
@@ -52,12 +54,14 @@ namespace Project_ICT
                         tbkMorseCode.IsEnabled = true;
                         tbxTekst.IsEnabled = true;
                         btnVertaal.IsEnabled = true;
+                        btnVerstuur.IsEnabled = true;
                     }
                     if (cbxCOMPoort.SelectedItem.ToString() == "None")
                     {
                         tbkMorseCode.IsEnabled = false;
                         tbxTekst.IsEnabled = false;
                         btnVertaal.IsEnabled = false;
+                        btnVerstuur.IsEnabled = false;
                     }
                 }
 
@@ -70,7 +74,7 @@ namespace Project_ICT
             MorseCode morse = new MorseCode();
             morse.Vertaal(tbxTekst.Text);
             tbkMorseCode.Text = morse.Code.ToString();
-            stuurNaarMicro(morse);
+            
 
         }
 
@@ -78,9 +82,22 @@ namespace Project_ICT
         {
             if ((_serialPort != null) && (_serialPort.IsOpen))
             {
+                foreach (char a in morse.Code)
+                {
+                    string i = a.ToString();
+                    _serialPort.Write(i);
+                    Thread.Sleep(3000);
+
+                }
                 
-                _serialPort.WriteLine(morse.Code);
             }
+        }
+
+        private void btnVerstuur_Click(object sender, RoutedEventArgs e)
+        {
+            MorseCode morse = new MorseCode();
+            morse.Vertaal(tbxTekst.Text);
+            stuurNaarMicro(morse);
         }
     }
 }

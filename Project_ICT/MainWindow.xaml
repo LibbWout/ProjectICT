@@ -19,8 +19,8 @@
 
             </TextBlock>
         </GroupBox>
-
-        <Button Height="64" Margin="20" Width="170" Name="btnVertaal" Click="btnVertaal_Click" IsEnabled="False">Vertaal naar morsecode.</Button>
+        <Button Height="49" Width="192" x:Name="btnVertaal" Click="btnVertaal_Click" IsEnabled="False" RenderTransformOrigin="0.521,0.536" Content="Vertaal naar morsecode."/>
+        <Button Height="49" Width="196" Name="btnVerstuur" Click="btnVerstuur_Click" IsEnabled="False">Zet op lichtjes.</Button>
 
 
     </StackPanel>

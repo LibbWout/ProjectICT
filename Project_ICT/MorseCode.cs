@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace Project_ICT
 {
     internal class MorseCode
     {
+        
+
         private string code;
 
         public string Code
@@ -16,10 +19,91 @@ namespace Project_ICT
             set { code = value; }
         }
 
+        //public MorseCode() 
+        //{
+        //    IDictionary<string, string> numberNames = new Dictionary<string, string>();
+        //    numberNames.Add("a", ".-");
+        //    numberNames.Add("b", "-...");
+        //    numberNames.Add("c", "-.-.");
+        //    numberNames.Add("d", "-..");
+        //    numberNames.Add("e", ".");
+        //    numberNames.Add("f", "..-.");
+        //    numberNames.Add("g", "--.");
+        //    numberNames.Add("h", "....");
+        //    numberNames.Add("i", "..");
+        //    numberNames.Add("j", ".---");
+        //    numberNames.Add("k", "-.-");
+        //    numberNames.Add("l", ".-..");
+        //    numberNames.Add("m", "--");
+        //    numberNames.Add("n", "-.");
+        //    numberNames.Add("o", "---");
+        //    numberNames.Add("p", ".--.");
+        //    numberNames.Add("q", "--.-");
+        //    numberNames.Add("r", ".-.");
+        //    numberNames.Add("s", "...");
+        //    numberNames.Add("t", "-");
+        //    numberNames.Add("u", "..-");
+        //    numberNames.Add("v", "...-");
+        //    numberNames.Add("w", ".--");
+        //    numberNames.Add("x", "-..-");
+        //    numberNames.Add("y", "-.--");
+        //    numberNames.Add("z", "--..");
+        //    numberNames.Add("0", ".-");
+        //    numberNames.Add("1", ".-");
+        //    numberNames.Add("2", ".-");
+        //    numberNames.Add("3", ".-");
+        //    numberNames.Add("4", ".-");
+        //    numberNames.Add("5", ".-");
+        //    numberNames.Add("6", ".-");
+        //    numberNames.Add("7", ".-");
+        //    numberNames.Add("8", ".-");
+        //    numberNames.Add("9", ".-");
+
+
+        //}
+
+        // A = .-
+        // B = - ...
+        // C = -.-.
+        // D = - ..
+        // E = .
+        // F = ..-.
+        // G = --.
+        // H = ....
+        // I = ..
+        // J = .-- -
+        // K = -.-
+        // L = .- ..
+        // M --
+        // N = -.
+        // O =-- -
+        // P = .--.
+        // Q = --.-
+        // R = .-.
+        // S = ...
+        // T = -
+        // U = ..-
+        // V = ...-
+        // W = .--
+        // X = - ..-
+        // Y = -.--
+        // Z = --..
+        // 0 = -----
+        // 1 = .----
+        // 2 = ..---
+        // 3 = ...--
+        // 4 = ....-
+        // 5 = .....
+        // 6 = - ....
+        // 7 = --...
+        // 8 = -- - ..
+        // 9 = ----.
+
 
 
         public string Vertaal(string text)
         {
+
             text = text.ToLower();
             foreach (char a in text)
             {
@@ -29,7 +113,9 @@ namespace Project_ICT
             }
             return Code;
         }
-
+       
+        
+    
 
         private string Codeer(string i)
         {
@@ -108,8 +194,10 @@ namespace Project_ICT
                 vertaling = "----.";
             return vertaling;
         }
-
         
+        
+
+
 
     }
 }
@@ -152,7 +240,3 @@ namespace Project_ICT
 // 8 = -- - ..
 // 9 = ----.
 
-//IDictionary<string, string> numberNames = new Dictionary<string, string>();
-//numberNames.Add("a" ,"One"); //adding a key/value using the Add() method
-//numberNames.Add(2,"Two");
-//numberNames.Add(3,"Three");
