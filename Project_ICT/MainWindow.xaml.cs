@@ -86,7 +86,7 @@ namespace Project_ICT
                 {
                     string i = a.ToString();
                     _serialPort.Write(i);
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1500);
 
                 }
                 
