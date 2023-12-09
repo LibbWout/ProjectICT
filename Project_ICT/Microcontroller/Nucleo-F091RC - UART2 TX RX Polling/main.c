@@ -53,7 +53,7 @@ int main(void)
 				if (temp == 45)
 				{
 					ByteToLeds(255);
-					WaitForMs(1000);
+					WaitForMs(1500);
 					ByteToLeds(0);
 				}
 					if (temp == 46)

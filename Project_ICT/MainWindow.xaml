@@ -12,7 +12,7 @@
         </GroupBox>
         <GroupBox Header="Te vertalen tekst">
 
-            <TextBox x:Name="tbxTekst" Height="20" Margin="20" IsEnabled="False"/>
+            <TextBox x:Name="tbxTekst" Height="20" Margin="20" IsEnabled="False" TextChanged="tbxTekst_TextChanged"/>
         </GroupBox>
         <GroupBox Header="Morsecode" >
             <TextBlock Name="tbkMorseCode"  Margin="20" Height="30" IsEnabled="False" TextAlignment="Center" FontSize="30">

@@ -53,8 +53,7 @@ namespace Project_ICT
                         _serialPort.Open();
                         tbkMorseCode.IsEnabled = true;
                         tbxTekst.IsEnabled = true;
-                        btnVertaal.IsEnabled = true;
-                        btnVerstuur.IsEnabled = true;
+                      
                     }
                     if (cbxCOMPoort.SelectedItem.ToString() == "None")
                     {
@@ -72,6 +71,7 @@ namespace Project_ICT
         private void btnVertaal_Click(object sender, RoutedEventArgs e)
         {
             MorseCode morse = new MorseCode();
+            
             morse.Vertaal(tbxTekst.Text);
             tbkMorseCode.Text = morse.Code.ToString();
             
@@ -86,7 +86,7 @@ namespace Project_ICT
                 {
                     string i = a.ToString();
                     _serialPort.Write(i);
-                    Thread.Sleep(1500);
+                    Thread.Sleep(1600);
 
                 }
                 
@@ -98,6 +98,19 @@ namespace Project_ICT
             MorseCode morse = new MorseCode();
             morse.Vertaal(tbxTekst.Text);
             stuurNaarMicro(morse);
+        }
+
+        private void tbxTekst_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            btnVertaal.IsEnabled = false;
+            btnVerstuur.IsEnabled = false;
+            if (tbxTekst.Text != "")
+            {
+                btnVertaal.IsEnabled = true;
+                btnVerstuur.IsEnabled = true;
+            }
+
         }
     }
 }
