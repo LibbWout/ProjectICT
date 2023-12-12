@@ -25,6 +25,7 @@ namespace Project_ICT
     public partial class MainWindow : Window
     {
         SerialPort _serialPort;
+        int _wachtTijd = 1700;
 
 
         public MainWindow()
@@ -86,7 +87,7 @@ namespace Project_ICT
                 {
                     string i = a.ToString();
                     _serialPort.Write(i);
-                    Thread.Sleep(1700);
+                    Thread.Sleep(_wachtTijd);
 
                 }
                 
